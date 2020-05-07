@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		3D8D4049246432DA0018F693 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D4048246432DA0018F693 /* AppDelegate.swift */; };
-		3D8D404B246432DA0018F693 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D404A246432DA0018F693 /* ViewController.swift */; };
-		3D8D404E246432DA0018F693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D404C246432DA0018F693 /* Main.storyboard */; };
 		3D8D4050246432DD0018F693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D404F246432DD0018F693 /* Assets.xcassets */; };
 		3D8D4053246432DD0018F693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D4051246432DD0018F693 /* LaunchScreen.storyboard */; };
 		3D8D405E246432DD0018F693 /* NewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D405D246432DD0018F693 /* NewsTests.swift */; };
 		3D8D4069246432DD0018F693 /* NewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D4068246432DD0018F693 /* NewsUITests.swift */; };
+		3D8D407A246435850018F693 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D4079246435850018F693 /* ServiceManager.swift */; };
+		3D8D407C246436BE0018F693 /* ServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D407B246436BE0018F693 /* ServiceSession.swift */; };
+		3D8D408024643A160018F693 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D407F24643A160018F693 /* ServiceError.swift */; };
+		3D8D4083246468A00018F693 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D4082246468A00018F693 /* ServiceManagerTests.swift */; };
+		3D8D40862464697A0018F693 /* MockURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D40852464697A0018F693 /* MockURLResponse.swift */; };
+		3D8D408824646BFA0018F693 /* MockServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D408724646BFA0018F693 /* MockServiceSession.swift */; };
+		3D8D408A24646C2B0018F693 /* MockServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D408924646C2B0018F693 /* MockServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +41,6 @@
 /* Begin PBXFileReference section */
 		3D8D4045246432DA0018F693 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8D4048246432DA0018F693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D8D404A246432DA0018F693 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3D8D404D246432DA0018F693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D8D404F246432DD0018F693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D8D4052246432DD0018F693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D8D4054246432DD0018F693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,13 @@
 		3D8D4064246432DD0018F693 /* NewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8D4068246432DD0018F693 /* NewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITests.swift; sourceTree = "<group>"; };
 		3D8D406A246432DD0018F693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D8D4079246435850018F693 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		3D8D407B246436BE0018F693 /* ServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSession.swift; sourceTree = "<group>"; };
+		3D8D407F24643A160018F693 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		3D8D4082246468A00018F693 /* ServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerTests.swift; sourceTree = "<group>"; };
+		3D8D40852464697A0018F693 /* MockURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLResponse.swift; sourceTree = "<group>"; };
+		3D8D408724646BFA0018F693 /* MockServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceSession.swift; sourceTree = "<group>"; };
+		3D8D408924646C2B0018F693 /* MockServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +107,8 @@
 		3D8D4047246432DA0018F693 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				3D8D4048246432DA0018F693 /* AppDelegate.swift */,
-				3D8D404A246432DA0018F693 /* ViewController.swift */,
-				3D8D404C246432DA0018F693 /* Main.storyboard */,
-				3D8D404F246432DD0018F693 /* Assets.xcassets */,
-				3D8D4051246432DD0018F693 /* LaunchScreen.storyboard */,
-				3D8D4054246432DD0018F693 /* Info.plist */,
+				3D8D4076246434EB0018F693 /* Application */,
+				3D8D40772464350A0018F693 /* Resources */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -110,6 +116,8 @@
 		3D8D405C246432DD0018F693 /* NewsTests */ = {
 			isa = PBXGroup;
 			children = (
+				3D8D4084246469610018F693 /* Mock */,
+				3D8D4081246464B90018F693 /* Networking */,
 				3D8D405D246432DD0018F693 /* NewsTests.swift */,
 				3D8D405F246432DD0018F693 /* Info.plist */,
 			);
@@ -123,6 +131,53 @@
 				3D8D406A246432DD0018F693 /* Info.plist */,
 			);
 			path = NewsUITests;
+			sourceTree = "<group>";
+		};
+		3D8D4076246434EB0018F693 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3D8D4078246435200018F693 /* Networking */,
+				3D8D4048246432DA0018F693 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3D8D40772464350A0018F693 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D8D404F246432DD0018F693 /* Assets.xcassets */,
+				3D8D4051246432DD0018F693 /* LaunchScreen.storyboard */,
+				3D8D4054246432DD0018F693 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3D8D4078246435200018F693 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3D8D407F24643A160018F693 /* ServiceError.swift */,
+				3D8D407B246436BE0018F693 /* ServiceSession.swift */,
+				3D8D4079246435850018F693 /* ServiceManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3D8D4081246464B90018F693 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3D8D4082246468A00018F693 /* ServiceManagerTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3D8D4084246469610018F693 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3D8D40852464697A0018F693 /* MockURLResponse.swift */,
+				3D8D408724646BFA0018F693 /* MockServiceSession.swift */,
+				3D8D408924646C2B0018F693 /* MockServiceManager.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +286,6 @@
 			files = (
 				3D8D4053246432DD0018F693 /* LaunchScreen.storyboard in Resources */,
 				3D8D4050246432DD0018F693 /* Assets.xcassets in Resources */,
-				3D8D404E246432DA0018F693 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D8D404B246432DA0018F693 /* ViewController.swift in Sources */,
+				3D8D408024643A160018F693 /* ServiceError.swift in Sources */,
 				3D8D4049246432DA0018F693 /* AppDelegate.swift in Sources */,
+				3D8D407A246435850018F693 /* ServiceManager.swift in Sources */,
+				3D8D407C246436BE0018F693 /* ServiceSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +321,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8D40862464697A0018F693 /* MockURLResponse.swift in Sources */,
 				3D8D405E246432DD0018F693 /* NewsTests.swift in Sources */,
+				3D8D408824646BFA0018F693 /* MockServiceSession.swift in Sources */,
+				3D8D4083246468A00018F693 /* ServiceManagerTests.swift in Sources */,
+				3D8D408A24646C2B0018F693 /* MockServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +353,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3D8D404C246432DA0018F693 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D8D404D246432DA0018F693 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3D8D4051246432DD0018F693 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = News/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = News/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

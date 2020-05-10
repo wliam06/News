@@ -30,19 +30,18 @@ private struct Path {
     case .topHeadlines:
       path = "/top-headlines"
     case .everything:
-      path = "everything"
+      path = "/everything"
     case .sources:
-      path = "sources"
+      path = "/sources"
     }
   }
 }
 
 class ServiceManager {
-  private let header = ["Authorization": "Bearer 464e01ad1e634524b2895290c53510de"]
-//  private let header = ["Authorization": ""]
-  private let baseURL = "https://newsapi.org/v2"
-
   private let session: ServiceSession
+
+  public static let header = ["Authorization": "Bearer \(Constant.apiKey)"]
+  private let baseURL = Constant.baseURL
 
   init(session: ServiceSession = URLSession.shared) {
     self.session = session
@@ -58,7 +57,7 @@ class ServiceManager {
 
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = "GET"
-    urlRequest.allHTTPHeaderFields = header
+    urlRequest.allHTTPHeaderFields = ServiceManager.header
 
     if let param = params {
       urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])

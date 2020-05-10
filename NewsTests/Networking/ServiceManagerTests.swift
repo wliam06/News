@@ -8,26 +8,42 @@
 
 import XCTest
 
+@testable import News
 class ServiceManagerTests: XCTestCase {
+  var mockSession: MockServiceSession?
+  var manager: ServiceManager?
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  override func setUp() {
+    mockSession = MockServiceSession()
+    manager = ServiceManager(session: mockSession!)
+  }
+
+  override func tearDown() {
+    mockSession = nil
+  }
+
+  func testInvalidLoadService() {
+    let expectError = ErrorRespond(type: .network)
+    mockSession?.stubbedLoadCompletionResult = (nil, nil, expectError)
+    
+    let url: URL = URL(string: Constant.baseURL + "/top-headlines")!
+    var urlRequest = URLRequest(url: url)
+    urlRequest.httpMethod = "GET"
+    urlRequest.allHTTPHeaderFields = ServiceManager.header
+
+    manager?.load(.topHeadlines, completion: { (data, error) in
+      XCTAssert(data == nil, "Expect data is empty")
+      XCTAssert(error == expectError, "Expect error is exist")
+    })
+
+    XCTAssert(mockSession?.invokedLoad == true, "Expect session is loaded")
+    XCTAssert(mockSession?.invokedLoadCount == 1, "Expect session is loaded once")
+    XCTAssert(mockSession?.invokedLoadParameters?.url == urlRequest, "Expect load param is same with url request")
+  }
+
+  func testPerformanceExample() {
+    self.measure {
+        // Put the code you want to measure the time of here.
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+  }
 }

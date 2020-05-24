@@ -20,6 +20,8 @@ class AppFlowCoordinator: Coordinator {
   
   func start() {
     let articleDIContainer = appDIContainer.loadRootDIContainer()
+    let flow = articleDIContainer.loadArticleListCoordinator(navigationController: navigationController)
+    flow.start()
   }
 
   func articleList() {

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		293921322646E864FF452952 /* Pods_News_NewsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A502A8FB967E31B2BA257700 /* Pods_News_NewsUITests.framework */; };
+		3D1634FC247AAA3400FE09BD /* ArticleListViewModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */; };
+		3D1634FF247AAC6800FE09BD /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */; };
 		3D41BD9D2467CF4B00F77C2F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41BD9C2467CF4B00F77C2F /* Constant.swift */; };
 		3D607E5F247A59E100FA19F9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D607E5E247A59E100FA19F9 /* Coordinator.swift */; };
 		3D607E63247A5F1D00FA19F9 /* ArticleListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D607E62247A5F1D00FA19F9 /* ArticleListCoordinator.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		3C309DBF4F4FD77418470893 /* Pods-News-NewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News-NewsUITests.release.xcconfig"; path = "Target Support Files/Pods-News-NewsUITests/Pods-News-NewsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelIO.swift; sourceTree = "<group>"; };
+		3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
 		3D41BD9C2467CF4B00F77C2F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3D607E5E247A59E100FA19F9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3D607E62247A5F1D00FA19F9 /* ArticleListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListCoordinator.swift; sourceTree = "<group>"; };
@@ -117,6 +121,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1634F8247AAA0F00FE09BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DFF3B232467D85E0009D16B /* ArticleListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D1634F9247AAA1500FE09BD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DFF3B252467D88D0009D16B /* ArticleListViewModel.swift */,
+				3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D1634FA247AAA2200FE09BD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3D607E62247A5F1D00FA19F9 /* ArticleListCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3D1634FD247AAC5B00FE09BD /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		3D607E65247A658300FA19F9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,9 +319,9 @@
 		3DFF3B222467D84B0009D16B /* ArticleList */ = {
 			isa = PBXGroup;
 			children = (
-				3DFF3B232467D85E0009D16B /* ArticleListViewController.swift */,
-				3DFF3B252467D88D0009D16B /* ArticleListViewModel.swift */,
-				3D607E62247A5F1D00FA19F9 /* ArticleListCoordinator.swift */,
+				3D1634FA247AAA2200FE09BD /* Coordinator */,
+				3D1634F9247AAA1500FE09BD /* ViewModel */,
+				3D1634F8247AAA0F00FE09BD /* View */,
 			);
 			path = ArticleList;
 			sourceTree = "<group>";
@@ -292,6 +329,7 @@
 		3DFF3B272467DBAF0009D16B /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3D1634FD247AAC5B00FE09BD /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -543,6 +581,7 @@
 				3D8D408024643A160018F693 /* ErrorRespond.swift in Sources */,
 				3DFF3B352468200C0009D16B /* AppFlowCoordinator.swift in Sources */,
 				3DFF3B38246820430009D16B /* AppDIContainer.swift in Sources */,
+				3D1634FF247AAC6800FE09BD /* ArticleEntity.swift in Sources */,
 				3D8D4049246432DA0018F693 /* AppDelegate.swift in Sources */,
 				3D41BD9D2467CF4B00F77C2F /* Constant.swift in Sources */,
 				3DFF3B242467D85E0009D16B /* ArticleListViewController.swift in Sources */,
@@ -550,6 +589,7 @@
 				3D8D407C246436BE0018F693 /* ServiceSession.swift in Sources */,
 				3D607E5F247A59E100FA19F9 /* Coordinator.swift in Sources */,
 				3DFF3B3A246834BC0009D16B /* ArticleDIContainer.swift in Sources */,
+				3D1634FC247AAA3400FE09BD /* ArticleListViewModelIO.swift in Sources */,
 				3D607E63247A5F1D00FA19F9 /* ArticleListCoordinator.swift in Sources */,
 				3DFF3B262467D88D0009D16B /* ArticleListViewModel.swift in Sources */,
 			);

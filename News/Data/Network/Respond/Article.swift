@@ -9,11 +9,11 @@
 import Foundation
 
 struct Headlines: Codable {
-  let articles: Articles
+  let articles: [Articles]
 }
 
-struct Sources: Codable {
-  let sources: ArticleSources
+struct Source: Codable {
+  let sources: [ArticleSources]
 }
 
 struct Articles: Codable {
@@ -25,13 +25,8 @@ struct Articles: Codable {
   let publishedAt: String
 }
 
-struct ArticlesSource: Codable {
-  let id: String?
-  let name: String
-}
-
 struct ArticleSources: Codable {
-  let id: String
+  let id: String?
   let name: String
   let description: String
   let url: String

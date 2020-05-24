@@ -8,5 +8,9 @@
 
 import Foundation
 
-class ArticleListViewModel {
+struct ArticleListViewModelClosures {
+  let showArticleDetail: (ArticleEntity) -> Void
+}
+
+class ArticleListViewModel: ArticleListViewModelIO {
 }

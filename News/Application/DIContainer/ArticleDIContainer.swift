@@ -9,6 +9,10 @@
 import UIKit
 
 final class ArticleDIContainer {
+  func loadArticleListVC() -> ArticleListViewController {
+    return ArticleListViewController.initiate(viewModel: ArticleListViewModel())
+  }
+
   // Coordinator
   func loadArticleListCoordinator(navigationController: UINavigationController) -> ArticleListCoordinator {
     return ArticleListCoordinator(navigationController: navigationController)

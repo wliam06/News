@@ -1,3 +1,4 @@
+
 //
 //  ServiceManager.swift
 //  News
@@ -8,90 +9,57 @@
 
 import Foundation
 
-enum ServicePath: Equatable {
-  case topHeadlines
-  case everything
-  case sources
-  
-  static func == (lhs: ServicePath?, rhs: ServicePath) -> Bool {
-    guard let lhs = lhs else {
-      return false
-    }
-    
-    return lhs == lhs
-  }
+public protocol NetworkCancellable {
+  func cancel()
 }
 
-private struct Path {
-  let path: String
-  
-  init(servicePath: ServicePath) {
-    switch servicePath {
-    case .topHeadlines:
-      path = "/top-headlines"
-    case .everything:
-      path = "/everything"
-    case .sources:
-      path = "/sources"
-    }
-  }
-}
+extension URLSessionTask: NetworkCancellable {}
 
-class ServiceManager {
-  private let session: ServiceSession
+final class ServiceManager {
+  private let config: BaseServiceConfig
+  private let session: ServiceRequest
 
-  public static let header = ["Authorization": "Bearer \(Constant.apiKey)"]
-  private let baseURL = Constant.baseURL
-
-  init(session: ServiceSession = URLSession.shared) {
+  public init(config: BaseServiceConfig, session: ServiceRequest = ServiceSessionRequest()) {
+    self.config = config
     self.session = session
   }
 
-  func load(_ path: ServicePath, params: [String: Any]? = nil, completion: @escaping(Data?, ErrorRespond?) -> Void) {
-    let servicePath = Path(servicePath: path)
-
-    guard let url = URL(string: baseURL + servicePath.path) else {
-      completion(nil, ErrorRespond(type: .err(message: "Invalid BASEURL")))
-      return
-    }
-
-    var urlRequest = URLRequest(url: url)
-    urlRequest.httpMethod = "GET"
-    urlRequest.allHTTPHeaderFields = ServiceManager.header
-
-    if let param = params {
-      urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: param, options: [])
-    }
-
-    session.load(url: urlRequest) { (data, response, error) in
-      var errorType = ErrorType.network
-
-      guard let data = data, error == nil else {
-        completion(nil, ErrorRespond(type: errorType))
-        return
-      }
-
-      do {
-        let json = try JSONSerialization.jsonObject(with: data, options: [])
-        if let httpResponse = response as? HTTPURLResponse,
-          httpResponse.statusCode != 200 {
-          if let message = (json as? [String: Any])? ["message"] as? String {
-            errorType = .err(message: message)
-          } else {
-            errorType = .unexpected
-          }
-          completion(nil, ErrorRespond(type: errorType))
-          return
+  private func load(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
+    let task = session.request(request: request) { (data, response, error) in
+      if let error = error {
+        var err: ErrorResponse
+        if let response = response as? HTTPURLResponse {
+          err = .err(statusCode: response.statusCode, data: data)
+        } else {
+          err = self.convertedError(error: error)
         }
-
-        completion(data, nil)
-        return
-      } catch {
-        errorType = .unexpected
-        completion(nil, ErrorRespond(type: errorType))
+      } else {
+        completion(.success(data))
       }
-
     }
 
+    return task
+  }
+  
+  private func convertedError(error: Error) -> ErrorResponse {
+    let code = URLError.Code(rawValue: (error as NSError).code)
+    switch code {
+    case .notConnectedToInternet: return .noConnection
+    case .cancelled: return .cancelled
+    default:
+      return .base(error)
+    }
+  }
+}
+
+extension ServiceManager: ServiceSession {
+  func request(endpoint: Request, completion: @escaping CompletionHandler) -> NetworkCancellable? {
+    do {
+      let urlRequest = try endpoint.urlRequest(config: config)
+      return self.load(request: urlRequest, completion: completion)
+    } catch {
+      completion(.failure(.invalidUrl))
+      return nil
+    }
   }
 }

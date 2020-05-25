@@ -9,7 +9,7 @@
 import Foundation
 
 struct ArticleListViewModelClosures {
-  let showArticleDetail: (ArticleEntity) -> Void
+  let showArticleDetail: (Article) -> Void
 }
 
 class ArticleListViewModel: ArticleListViewModelIO {

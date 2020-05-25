@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ArticleEntity: Equatable {
+struct Article: Equatable {
   let id: String?
   let title: String
   let description: String

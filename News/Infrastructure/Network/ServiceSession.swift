@@ -2,22 +2,28 @@
 //  ServiceSession.swift
 //  News
 //
-//  Created by William on 07/05/20.
+//  Created by William on 25/05/20.
 //  Copyright © 2020 William. All rights reserved.
 //
 
 import Foundation
 
-protocol ServiceSession {
-  func load(url: URLRequest, completion: @escaping(Data?, URLResponse?, Error?) -> Void)
+public protocol ServiceSession {
+  typealias CompletionHandler = (Result<Data?, ErrorResponse>) -> Void
+  func request(endpoint: Request, completion: @escaping CompletionHandler) -> NetworkCancellable?
 }
 
-extension URLSession: ServiceSession {
-  func load(url: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-    URLSession.shared.dataTask(with: url) { (data, response, error) in
-      DispatchQueue.main.async {
-        completion(data, response, error)
-      }
-    }.resume()
+public protocol ServiceRequest {
+  typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
+  func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable
+}
+
+public class ServiceSessionRequest: ServiceRequest {
+  public init() {}
+
+  public func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
+    let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
+    task.resume()
+    return task
   }
 }

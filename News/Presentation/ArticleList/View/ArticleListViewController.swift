@@ -43,9 +43,10 @@ class ArticleListViewController: UIViewController {
     // Set tableView
     view.addSubview(articleListView)
 
-    let margins = view.layoutMarginsGuide
+    let safeArea = view.safeAreaLayoutGuide
+
     NSLayoutConstraint.activate([
-      articleListView.topAnchor.constraint(equalTo: margins.topAnchor),
+      articleListView.topAnchor.constraint(equalTo: safeArea.topAnchor),
       articleListView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       articleListView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       articleListView.trailingAnchor.constraint(equalTo: view.trailingAnchor)

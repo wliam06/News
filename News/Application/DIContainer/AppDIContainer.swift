@@ -9,7 +9,17 @@
 import Foundation
 
 final class AppDIContainer {
-  func loadRootDIContainer() -> ArticleDIContainer {
-    return ArticleDIContainer()
+  lazy var appConfiguration = AppConfiguration()
+
+  lazy var serviceResponse: DataService = {
+    let config = ServiceConfig(baseURL: URL(string: appConfiguration.apiBaseUrl)!,
+                               parameters: ["apiKey": appConfiguration.apiKey])
+    let serviceManager = ServiceManager(config: config)
+    return ServiceResponse(session: serviceManager)
+  }()
+
+  func loadArticleDIContainer() -> ArticleDIContainer {
+    let resource = Resource(dataService: serviceResponse)
+    return ArticleDIContainer(resource: resource)
   }
 }

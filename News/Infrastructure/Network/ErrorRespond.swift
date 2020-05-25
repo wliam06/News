@@ -8,27 +8,43 @@
 
 import Foundation
 
-enum ErrorType: Error, Equatable {
-  case err(message: String)
-  case network
-  case unexpected
+// MARK: - Error Response Request
+public enum ErrorResponse: Error {
+  case err(statusCode: Int, data: Data?)
+  case noConnection
+  case cancelled
+  case invalidUrl
+  case base(Error)
 }
 
-struct ErrorRespond: Error, Equatable {
-  let type: ErrorType
+extension ErrorResponse {
+  public var notFoundError: Bool { return statusCode(404) }
 
-  var message: String {
-    switch type {
-    case .err(let text):
-      return text
-    case .network:
-      return "Connection error."
-    case .unexpected:
-      return "An unexpected error occurred."
+  public func statusCode(_ code: Int) -> Bool {
+    switch self {
+    case let.err(code, _):
+      return code == code
+    default: return false
     }
   }
+}
 
-  static func == (lhs: ErrorRespond, rhs: ErrorRespond) -> Bool {
-    return lhs.type == rhs.type
+// MARK: -  Service Error Data
+public enum DataErrorType: Error {
+  case noResponse
+  case parsing(Error)
+  case networkInvalid(ErrorResponse)
+  case connectionError(Error)
+}
+
+public protocol DataError {
+  func err(error: ErrorResponse) -> Error
+}
+
+public final class ServiceErrorResponse: DataError {
+  public init() {}
+  
+  public func err(error: ErrorResponse) -> Error {
+    return error
   }
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol Coordinator: AnyObject {
+  var navigationController: UINavigationController { get set } // presented view
+  func start() // creating
+}
+
 class AppFlowCoordinator: Coordinator {
   var navigationController: UINavigationController
 
@@ -19,7 +24,7 @@ class AppFlowCoordinator: Coordinator {
   }
   
   func start() {
-    let articleDIContainer = appDIContainer.loadRootDIContainer()
+    let articleDIContainer = appDIContainer.loadArticleDIContainer()
     let flow = articleDIContainer.loadArticleListCoordinator(navigationController: navigationController)
     flow.start()
   }

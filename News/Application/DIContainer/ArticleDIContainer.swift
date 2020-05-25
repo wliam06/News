@@ -8,7 +8,17 @@
 
 import UIKit
 
+struct Resource {
+  let dataService: DataService
+}
+
 final class ArticleDIContainer {
+  private let resource: Resource
+
+  init(resource: Resource) {
+    self.resource = resource
+  }
+  
   func loadArticleListVC() -> ArticleListViewController {
     return ArticleListViewController.initiate(viewModel: ArticleListViewModel())
   }

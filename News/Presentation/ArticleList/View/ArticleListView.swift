@@ -10,9 +10,13 @@ import UIKit
 
 final class ArticleListView: UIView {
   private lazy var collectionView: UICollectionView = {
-    return UICollectionView.create() { collectionView in
-      collectionView.translatesAutoresizingMaskIntoConstraints = false
-    }
+    let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.backgroundColor = .clear
+    return collectionView
   }()
 
   override init(frame: CGRect) {
@@ -26,7 +30,6 @@ final class ArticleListView: UIView {
   }
 
   private func configureLayout() {
-    backgroundColor = .clear
     addSubview(collectionView)
 
     applyConstraint()

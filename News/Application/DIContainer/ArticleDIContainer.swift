@@ -18,7 +18,7 @@ final class ArticleDIContainer {
   init(resource: Resource) {
     self.resource = resource
   }
-  
+
   func loadArticleListVC() -> ArticleListViewController {
     return ArticleListViewController.initiate(viewModel: ArticleListViewModel())
   }

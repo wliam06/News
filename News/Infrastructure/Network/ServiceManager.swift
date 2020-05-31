@@ -33,6 +33,7 @@ final class ServiceManager {
         } else {
           err = self.convertedError(error: error)
         }
+        completion(.failure(err))
       } else {
         completion(.success(data))
       }

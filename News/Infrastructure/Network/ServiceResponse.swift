@@ -90,7 +90,7 @@ public final class ServiceResponse: DataService {
 public class JsonResponseDecoder: ResponseDecoder {
   private let decoder = JSONDecoder()
   public init() {}
-  
+
   public func decode<T>(_ data: Data) throws -> T where T : Decodable {
     return try decoder.decode(T.self, from: data)
   }

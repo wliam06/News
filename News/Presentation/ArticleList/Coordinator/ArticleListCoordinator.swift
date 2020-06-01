@@ -8,16 +8,21 @@
 
 import UIKit
 
-class ArticleListCoordinator: Coordinator {
-  weak var parentCoordinator: AppFlowCoordinator?
-  var navigationController: UINavigationController
+protocol ArticleListDependencies {
+  func loadArticleListVC() -> ArticleListViewController
+}
 
-  init(navigationController: UINavigationController) {
+class ArticleListCoordinator: Coordinator {
+  var navigationController: UINavigationController
+  private let dependencies: ArticleListDependencies
+
+  init(navigationController: UINavigationController, dependencies: ArticleListDependencies) {
     self.navigationController = navigationController
+    self.dependencies = dependencies
   }
 
   func start() {
-    let vc = ArticleListViewController()
+    let vc = dependencies.loadArticleListVC()
     navigationController.pushViewController(vc, animated: true)
   }
 }

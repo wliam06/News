@@ -8,11 +8,18 @@
 
 import UIKit
 
-class HeadlineCell: UICollectionViewCell {
+class HeadlineCell: UITableViewCell {
+  var item: Article? {
+    didSet {
+      didSetHeadlineItem()
+    }
+  }
+
   private let headlineImageView: UIImageView = {
     return UIImageView.create(apply: { (image) in
       image.translatesAutoresizingMaskIntoConstraints = false
-      image.contentMode = UIView.ContentMode.scaleToFill
+      image.contentMode = UIView.ContentMode.scaleAspectFill
+      image.sizeToFit()
     })
   }()
 
@@ -27,14 +34,16 @@ class HeadlineCell: UICollectionViewCell {
     return UIStackView.create(apply: { stack in
       stack.translatesAutoresizingMaskIntoConstraints = false
       stack.axis = NSLayoutConstraint.Axis.vertical
+      stack.distribution = .fill
+      stack.backgroundColor = .blue
     })
   }()
 
   private let titleLabel: UILabel = {
     return UILabel.create(apply: { label in
-      label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-      label.adjustsFontSizeToFitWidth = true
-      label.minimumScaleFactor = 0.8
+      label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+      label.textColor = .white
+      label.numberOfLines = 2
     })
   }()
 
@@ -42,16 +51,22 @@ class HeadlineCell: UICollectionViewCell {
     return String(describing: self)
   }
 
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: .default, reuseIdentifier: reuseIdentifier)
 
     configureHeadlineImage()
     configureLabelContainer()
   }
 
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   private func configureHeadlineImage() {
+    // Set headline image
     self.addSubview(headlineImageView)
 
+    headlineImageView.backgroundColor = .lightGray
     NSLayoutConstraint.activate([
       headlineImageView.topAnchor.constraint(equalTo: topAnchor),
       headlineImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -63,26 +78,38 @@ class HeadlineCell: UICollectionViewCell {
   private func configureLabelContainer() {
     self.addSubview(labelContainerView)
 
-    // Add stackView
-    labelContainerView.addSubview(setStackView())
-
+    // Set label container constraint
     NSLayoutConstraint.activate([
-      labelContainerView.topAnchor.constraint(equalTo: topAnchor),
       labelContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
       labelContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
       labelContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
       labelContainerView.heightAnchor.constraint(equalToConstant: 64)
     ])
-  }
 
-  private func setStackView() -> UIStackView {
+    labelContainerView.addSubview(stackView)
     stackView.addArrangedSubview(titleLabel)
+    labelContainerView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+
+    stackView.backgroundColor = .blue
+    // Set stackview constraint
     NSLayoutConstraint.activate([
       stackView.topAnchor.constraint(equalTo: labelContainerView.topAnchor),
-      stackView.leadingAnchor.constraint(equalTo: labelContainerView.leadingAnchor, constant: 16),
-      stackView.bottomAnchor.constraint(equalTo: labelContainerView.bottomAnchor, constant: 10),
-      stackView.trailingAnchor.constraint(equalTo: labelContainerView.trailingAnchor, constant: 16)
+      stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+      stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+      stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
     ])
-    return stackView
+  }
+
+  private func didSetHeadlineItem() {
+    guard let article = self.item else { return }
+    titleLabel.text = article.title
+
+    print(article.title)
+    
+    if let imageUrl = article.urlToImage {
+      let url = URL(string: imageUrl)
+      headlineImageView.loadImage(url: url)
+    }
+    
   }
 }

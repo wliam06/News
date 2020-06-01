@@ -10,10 +10,10 @@ import UIKit
 
 class CollectionViewDataSource<Cell: UICollectionViewCell, ViewModel>: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
   private var identifier: String
-  private var data: [ViewModel]
-  var configureCell: (Cell, ViewModel) -> ()
+  private var data: [Article]
+  var configureCell: (Cell, Article) -> ()
 
-  init(reuseIdentifier identifier: String, data: [ViewModel], configureCell: @escaping(Cell, ViewModel) -> ()) {
+  init(reuseIdentifier identifier: String, data: [Article], configureCell: @escaping(Cell, Article) -> ()) {
     self.data = data
     self.identifier = identifier
     self.configureCell = configureCell

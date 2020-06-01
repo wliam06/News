@@ -28,10 +28,4 @@ class AppFlowCoordinator: Coordinator {
     let flow = articleDIContainer.loadArticleListCoordinator(navigationController: navigationController)
     flow.start()
   }
-
-  func articleList() {
-    let child = ArticleListCoordinator(navigationController: navigationController)
-    child.parentCoordinator = self
-    child.start()
-  }
 }

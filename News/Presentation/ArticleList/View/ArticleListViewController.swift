@@ -11,14 +11,13 @@ import UIKit
 class ArticleListViewController: UIViewController {
   weak var coordinator: ArticleListCoordinator?
   private var viewModel: ArticleListViewModel!
-  private var dataSource: CollectionViewDataSource<HeadlineCell, ArticleListViewModel>!
 
-  private lazy var articleListView: ArticleListView = {
-    return ArticleListView.create() { views in
-      views.translatesAutoresizingMaskIntoConstraints = false
-    }
+  private let headlineView: HeadlineView = {
+    let view = HeadlineView(frame: .zero, style: .plain)
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
   }()
-
+  
   // MARK: - Initialize
   static func initiate(viewModel: ArticleListViewModel) -> ArticleListViewController {
     let view = ArticleListViewController()
@@ -26,30 +25,36 @@ class ArticleListViewController: UIViewController {
     return view
   }
 
+  // MARK: - Life cycle
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    title = "News"
+    title = "Headline News"
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
 
-    configureLayout()
-  }
+    // Request top headlines based on country
+    if let country = NSLocale.current.regionCode {
+      viewModel.requestTopHeadlines(country)
+    }
 
-  private func configureLayout() {
-    // Set tableView
-    view.addSubview(articleListView)
+    bind(to: viewModel)
 
-    let safeArea = view.safeAreaLayoutGuide
+    // Add child view
+    self.view.addSubview(headlineView)
 
     NSLayoutConstraint.activate([
-      articleListView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-      articleListView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      articleListView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-      articleListView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+      headlineView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
+      headlineView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+      headlineView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+      headlineView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
     ])
+  }
+
+  private func bind(to viewModel: ArticleListViewModel) {
+    viewModel.topHeadlines.observe(on: self, observerBlock: { [weak self] in self?.headlineView.data = $0 })
   }
 }

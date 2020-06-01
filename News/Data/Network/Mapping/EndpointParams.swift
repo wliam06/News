@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct TopHeadlineDTO: Encodable {
+struct TopHeadlineParams: Codable {
   let country: String
 }

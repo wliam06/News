@@ -14,7 +14,7 @@ struct MockServiceRequest: ServiceRequest {
   let response: HTTPURLResponse?
   let error: Error?
   
-  func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
+  func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancelable {
     completion(data, response, error)
     return URLSessionTask()
   }

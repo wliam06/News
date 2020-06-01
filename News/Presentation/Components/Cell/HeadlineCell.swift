@@ -103,8 +103,6 @@ class HeadlineCell: UITableViewCell {
   private func didSetHeadlineItem() {
     guard let article = self.item else { return }
     titleLabel.text = article.title
-
-    print(article.title)
     
     if let imageUrl = article.urlToImage {
       let url = URL(string: imageUrl)

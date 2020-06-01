@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ArticleRepository: class {
+protocol ArticleRepository {
   @discardableResult
   func requestTopHeadlines(_ country: String, completion: @escaping OnSuccess<ArticlesEntity>) -> Cancelable?
 }

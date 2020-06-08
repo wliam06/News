@@ -8,18 +8,37 @@
 
 import UIKit
 
+let imageCache = NSCache<NSString, AnyObject>()
+
 extension UIImageView {
-  func loadImage(url: URL?) {
-    guard let url = url else { return }
-
-    URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
-      guard let data = data else { return }
-
-      let image = UIImage(data: data)
+  func loadImage(withUrl urlString : String) {
+    let stringWithPercent = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    let url = URL(string: stringWithPercent)
+    self.image = nil
+    
+    // check cached image
+    if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
+      self.image = cachedImage
+      return
+    }
+    
+    // if not, download image from url
+    guard let urlExist = url else { return }
+    URLSession.shared.dataTask(with: urlExist, completionHandler: { (data, response, error) in
+      if let error = error {
+        #if DEBUG
+        debugPrint("error load image", error)
+        #endif
+        return
+      }
 
       DispatchQueue.main.async {
-        self.image = image
+        if let image = UIImage(data: data!) {
+          imageCache.setObject(image, forKey: urlString as NSString)
+          self.image = image
+        }
       }
+      
     }).resume()
   }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeadlineCell: UITableViewCell {
+class HeadlineCell: UICollectionViewCell {
   var item: Article? {
     didSet {
       didSetHeadlineItem()
@@ -18,7 +18,7 @@ class HeadlineCell: UITableViewCell {
   private let headlineImageView: UIImageView = {
     return UIImageView.create(apply: { (image) in
       image.translatesAutoresizingMaskIntoConstraints = false
-      image.contentMode = UIView.ContentMode.scaleAspectFill
+      image.contentMode = UIView.ContentMode.scaleToFill
       image.sizeToFit()
     })
   }()
@@ -51,8 +51,8 @@ class HeadlineCell: UITableViewCell {
     return String(describing: self)
   }
 
-  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: .default, reuseIdentifier: reuseIdentifier)
+  override init(frame: CGRect) {
+    super.init(frame: frame)
 
     configureHeadlineImage()
     configureLabelContainer()
@@ -96,7 +96,7 @@ class HeadlineCell: UITableViewCell {
       stackView.topAnchor.constraint(equalTo: labelContainerView.topAnchor),
       stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
       stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-      stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+      stackView.bottomAnchor.constraint(equalTo: labelContainerView.bottomAnchor)
     ])
   }
 
@@ -105,8 +105,7 @@ class HeadlineCell: UITableViewCell {
     titleLabel.text = article.title
     
     if let imageUrl = article.urlToImage {
-      let url = URL(string: imageUrl)
-      headlineImageView.loadImage(url: url)
+      headlineImageView.loadImage(withUrl: imageUrl)
     }
     
   }

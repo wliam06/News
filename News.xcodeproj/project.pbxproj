@@ -11,6 +11,7 @@
 		3D1634FC247AAA3400FE09BD /* ArticleListViewModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */; };
 		3D1634FF247AAC6800FE09BD /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */; };
 		3D20287A2483B41E00EED602 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2028792483B41E00EED602 /* Observable.swift */; };
+		3D4846AF248E206000EE5C7A /* HeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846AD248E206000EE5C7A /* HeadlineViewController.swift */; };
 		3D4DDDE12480B42200BBBCC3 /* ServiceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DDDE02480B42200BBBCC3 /* ServiceResponseTests.swift */; };
 		3D4FB7A8247FED6C00F6A3F8 /* MockServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FB7A7247FED6C00F6A3F8 /* MockServiceConfig.swift */; };
 		3D4FB7AA247FEDE600F6A3F8 /* MockServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FB7A9247FEDE600F6A3F8 /* MockServiceRequest.swift */; };
@@ -40,7 +41,6 @@
 		3DE51F75247BF8860031E95D /* ServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE51F74247BF8860031E95D /* ServiceSession.swift */; };
 		3DE51F77247BFD690031E95D /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE51F76247BFD690031E95D /* ApiEndpoint.swift */; };
 		3DE51F7A247BFE800031E95D /* EndpointParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE51F79247BFE800031E95D /* EndpointParams.swift */; };
-		3DFEC6B52484DA040069B468 /* ArticleHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEC6B42484DA040069B468 /* ArticleHeadlineView.swift */; };
 		3DFEC6B72484E9230069B468 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEC6B62484E9230069B468 /* ImageViewExtension.swift */; };
 		3DFEC6BF2485154B0069B468 /* ArticleUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEC6BE2485154B0069B468 /* ArticleUseCaseTests.swift */; };
 		3DFEC6C2248515920069B468 /* MockArticleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFEC6C1248515920069B468 /* MockArticleRepository.swift */; };
@@ -76,6 +76,7 @@
 		3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelIO.swift; sourceTree = "<group>"; };
 		3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
 		3D2028792483B41E00EED602 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		3D4846AD248E206000EE5C7A /* HeadlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineViewController.swift; sourceTree = "<group>"; };
 		3D4DDDE02480B42200BBBCC3 /* ServiceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponseTests.swift; sourceTree = "<group>"; };
 		3D4FB7A7247FED6C00F6A3F8 /* MockServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceConfig.swift; sourceTree = "<group>"; };
 		3D4FB7A9247FEDE600F6A3F8 /* MockServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceRequest.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		3DE51F74247BF8860031E95D /* ServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSession.swift; sourceTree = "<group>"; };
 		3DE51F76247BFD690031E95D /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		3DE51F79247BFE800031E95D /* EndpointParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointParams.swift; sourceTree = "<group>"; };
-		3DFEC6B42484DA040069B468 /* ArticleHeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeadlineView.swift; sourceTree = "<group>"; };
 		3DFEC6B62484E9230069B468 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		3DFEC6BE2485154B0069B468 /* ArticleUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleUseCaseTests.swift; sourceTree = "<group>"; };
 		3DFEC6C1248515920069B468 /* MockArticleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticleRepository.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		3D20287D2483E1D300EED602 /* Headline */ = {
 			isa = PBXGroup;
 			children = (
-				3DFEC6B42484DA040069B468 /* ArticleHeadlineView.swift */,
+				3D4846AD248E206000EE5C7A /* HeadlineViewController.swift */,
 			);
 			path = Headline;
 			sourceTree = "<group>";
@@ -767,8 +767,8 @@
 				3DE51F73247BDDC50031E95D /* ServiceResponse.swift in Sources */,
 				3DE51F77247BFD690031E95D /* ApiEndpoint.swift in Sources */,
 				3DE51F71247BD9870031E95D /* DictionaryExtension.swift in Sources */,
-				3DFEC6B52484DA040069B468 /* ArticleHeadlineView.swift in Sources */,
 				3DFEC6B72484E9230069B468 /* ImageViewExtension.swift in Sources */,
+				3D4846AF248E206000EE5C7A /* HeadlineViewController.swift in Sources */,
 				3DCEFAD724837B4300D0A536 /* RepositoryTask.swift in Sources */,
 				3D6C49272483746400EC5649 /* ArticleUseCases.swift in Sources */,
 				3DFF3B242467D85E0009D16B /* ArticleListViewController.swift in Sources */,
@@ -965,6 +965,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BY8P5XC76R;
 				INFOPLIST_FILE = News/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -973,7 +974,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -988,6 +989,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BY8P5XC76R;
 				INFOPLIST_FILE = News/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -996,7 +998,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

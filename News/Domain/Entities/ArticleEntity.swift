@@ -8,9 +8,14 @@
 
 import Foundation
 
-struct Article: Equatable {
+struct ArticlesEntity: Equatable {
+  let articles: [Article]
+}
+
+struct Article: Equatable, Identifiable {
   let id: String?
   let title: String
-  let description: String
+  let description: String?
   let url: String
+  let urlToImage: String?
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct ApiEndpoint {
-  static func getHeadline(param: TopHeadlineDTO) -> Endpoint<TopHeadlineDTO> {
+  static func getHeadline(param: TopHeadlineParams) -> Endpoint<Headlines> {
     return Endpoint(path: "/top-headlines", queryParametersEncodable: param)
   }
 }

@@ -19,12 +19,30 @@ final class ArticleDIContainer {
     self.resource = resource
   }
 
-  func loadArticleListVC() -> ArticleListViewController {
-    return ArticleListViewController.initiate(viewModel: ArticleListViewModel())
+  // MARK: - Repository
+  func loadArticleRepository() -> ArticleRepository {
+    return DefaultArticleRepository(service: resource.dataService)
   }
 
-  // Coordinator
+  // MARK: - UseCase
+  func loadArticleUseCase() -> ArticleUseCase {
+    return DefaultArticleUseCase(repository: loadArticleRepository())
+  }
+
+  // MARK: - View Model
+  func loadArticleViewModel() -> ArticleListViewModel {
+    return ArticleListViewModel(useCase: loadArticleUseCase())
+  }
+
+  // MARK: - View Controller
+  func loadArticleListVC() -> ArticleListViewController {
+    return ArticleListViewController.initiate(viewModel: loadArticleViewModel())
+  }
+
+  // MARK: - Coordinator
   func loadArticleListCoordinator(navigationController: UINavigationController) -> ArticleListCoordinator {
-    return ArticleListCoordinator(navigationController: navigationController)
+    return ArticleListCoordinator(navigationController: navigationController, dependencies: self)
   }
 }
+
+extension ArticleDIContainer: ArticleListDependencies {}

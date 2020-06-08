@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias OnSuccess<T> = (Result<T, Error>) -> Void
+
 public protocol ResponseDecoder {
   func decode<T: Decodable>(_ data: Data) throws -> T
 }
@@ -17,12 +19,12 @@ public protocol DataService {
   
   @discardableResult
   func request<T: Decodable, E: ResponseRequest>(withEndpoint endpoint: E,
-                                                 completion: @escaping CompletionHandler<T>) -> NetworkCancellable? where E.Response == T
+                                                 completion: @escaping CompletionHandler<T>) -> NetworkCancelable? where E.Response == T
 
   // Request image url
   @discardableResult
   func request<E: ResponseRequest>(withEndpoint endpoint: E,
-                                   completion: @escaping CompletionHandler<Void>) -> NetworkCancellable? where E.Response == Void
+                                   completion: @escaping CompletionHandler<Void>) -> NetworkCancelable? where E.Response == Void
 }
 
 // MARK: - Service Response
@@ -36,7 +38,7 @@ public final class ServiceResponse: DataService {
   }
 
   public func request<T, E>(withEndpoint endpoint: E,
-                            completion: @escaping (Result<T, DataErrorType>) -> Void) -> NetworkCancellable? where T : Decodable, T == E.Response, E : ResponseRequest {
+                            completion: @escaping (Result<T, DataErrorType>) -> Void) -> NetworkCancelable? where T : Decodable, T == E.Response, E : ResponseRequest {
     return self.session.request(endpoint: endpoint, completion: { (response) in
       switch response {
       case .success(let data):
@@ -54,7 +56,7 @@ public final class ServiceResponse: DataService {
   }
 
   public func request<E>(withEndpoint endpoint: E,
-                         completion: @escaping CompletionHandler<Void>) -> NetworkCancellable? where E : ResponseRequest, E.Response == Void {
+                         completion: @escaping CompletionHandler<Void>) -> NetworkCancelable? where E : ResponseRequest, E.Response == Void {
     return self.session.request(endpoint: endpoint, completion: { (response) in
       switch response {
       case .success(_):

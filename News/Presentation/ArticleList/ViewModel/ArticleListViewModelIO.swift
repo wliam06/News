@@ -8,9 +8,12 @@
 
 import Foundation
 
-protocol ArticleListViewModelInput: class {}
-
-protocol ArticleListViewModelOutput: class {}
-
-protocol ArticleListViewModelIO: ArticleListViewModelInput, ArticleListViewModelOutput {
+protocol ArticleListViewModelInput: class {
+  func requestTopHeadlines(_ country: String)
 }
+
+protocol ArticleListViewModelOutput: class {
+  var topHeadlines: Observable<[Article]> { get }
+}
+
+protocol ArticleListViewModelIO: ArticleListViewModelInput, ArticleListViewModelOutput {}

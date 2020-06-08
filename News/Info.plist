@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>ApiBaseURL</key>
-	<string>$(API_KEY)</string>
-	<key>ApiKey</key>
 	<string>$(BASE_URL)</string>
+	<key>ApiKey</key>
+	<string>$(API_KEY)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

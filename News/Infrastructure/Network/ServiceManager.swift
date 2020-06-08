@@ -9,11 +9,11 @@
 
 import Foundation
 
-public protocol NetworkCancellable {
+public protocol NetworkCancelable {
   func cancel()
 }
 
-extension URLSessionTask: NetworkCancellable {}
+extension URLSessionTask: NetworkCancelable {}
 
 final class ServiceManager {
   private let config: BaseServiceConfig
@@ -24,7 +24,7 @@ final class ServiceManager {
     self.session = session
   }
 
-  private func load(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
+  private func load(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancelable {
     let task = session.request(request: request) { (data, response, error) in
       if let error = error {
         var err: ErrorResponse
@@ -54,7 +54,7 @@ final class ServiceManager {
 }
 
 extension ServiceManager: ServiceSession {
-  func request(endpoint: Request, completion: @escaping CompletionHandler) -> NetworkCancellable? {
+  func request(endpoint: Request, completion: @escaping CompletionHandler) -> NetworkCancelable? {
     do {
       let urlRequest = try endpoint.urlRequest(config: config)
       return self.load(request: urlRequest, completion: completion)

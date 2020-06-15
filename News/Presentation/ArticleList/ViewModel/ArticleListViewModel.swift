@@ -28,11 +28,6 @@ class ArticleListViewModel: ArticleListViewModelIO {
   init(useCase: ArticleUseCase) {
     self.useCase = useCase
   }
-
-  // MARK: - Private Method
-  private func loadHeadlines(_ country: String) {
-    
-  }
   
   // MARK: - Input
   func requestTopHeadlines(_ country: String) {

@@ -11,12 +11,18 @@
 		3D1634FC247AAA3400FE09BD /* ArticleListViewModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */; };
 		3D1634FF247AAC6800FE09BD /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */; };
 		3D20287A2483B41E00EED602 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2028792483B41E00EED602 /* Observable.swift */; };
+		3D2ED8142496013B000294FA /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2ED8132496013B000294FA /* test.xib */; };
 		3D4846AF248E206000EE5C7A /* HeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846AD248E206000EE5C7A /* HeadlineViewController.swift */; };
+		3D4846BB248E404B00EE5C7A /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846B9248E404B00EE5C7A /* ArticleDetailViewController.swift */; };
+		3D4846BE248E406A00EE5C7A /* ArticleDetailViewModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846BD248E406A00EE5C7A /* ArticleDetailViewModelIO.swift */; };
+		3D4846C0248E40C400EE5C7A /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846BF248E40C400EE5C7A /* ArticleDetailViewModel.swift */; };
+		3D4846C2248E410100EE5C7A /* ArticleDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4846C1248E410100EE5C7A /* ArticleDetailCoordinator.swift */; };
 		3D4DDDE12480B42200BBBCC3 /* ServiceResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4DDDE02480B42200BBBCC3 /* ServiceResponseTests.swift */; };
 		3D4FB7A8247FED6C00F6A3F8 /* MockServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FB7A7247FED6C00F6A3F8 /* MockServiceConfig.swift */; };
 		3D4FB7AA247FEDE600F6A3F8 /* MockServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FB7A9247FEDE600F6A3F8 /* MockServiceRequest.swift */; };
 		3D4FB7AC247FEE5400F6A3F8 /* MockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FB7AB247FEE5400F6A3F8 /* MockRequest.swift */; };
 		3D4FB7B0247FEECC00F6A3F8 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4FB7AF247FEECC00F6A3F8 /* ServiceManagerTests.swift */; };
+		3D5E72CC24977FD100FA0657 /* ArticleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E72CB24977FD000FA0657 /* ArticleItemCell.swift */; };
 		3D607E63247A5F1D00FA19F9 /* ArticleListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D607E62247A5F1D00FA19F9 /* ArticleListCoordinator.swift */; };
 		3D607E6C247A685F00FA19F9 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D607E6B247A685F00FA19F9 /* Article.swift */; };
 		3D6C49272483746400EC5649 /* ArticleUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C49262483746400EC5649 /* ArticleUseCases.swift */; };
@@ -76,12 +82,18 @@
 		3D1634FB247AAA3400FE09BD /* ArticleListViewModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelIO.swift; sourceTree = "<group>"; };
 		3D1634FE247AAC6800FE09BD /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
 		3D2028792483B41E00EED602 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		3D2ED8132496013B000294FA /* test.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
 		3D4846AD248E206000EE5C7A /* HeadlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineViewController.swift; sourceTree = "<group>"; };
+		3D4846B9248E404B00EE5C7A /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
+		3D4846BD248E406A00EE5C7A /* ArticleDetailViewModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModelIO.swift; sourceTree = "<group>"; };
+		3D4846BF248E40C400EE5C7A /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
+		3D4846C1248E410100EE5C7A /* ArticleDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailCoordinator.swift; sourceTree = "<group>"; };
 		3D4DDDE02480B42200BBBCC3 /* ServiceResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResponseTests.swift; sourceTree = "<group>"; };
 		3D4FB7A7247FED6C00F6A3F8 /* MockServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceConfig.swift; sourceTree = "<group>"; };
 		3D4FB7A9247FEDE600F6A3F8 /* MockServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceRequest.swift; sourceTree = "<group>"; };
 		3D4FB7AB247FEE5400F6A3F8 /* MockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequest.swift; sourceTree = "<group>"; };
 		3D4FB7AF247FEECC00F6A3F8 /* ServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerTests.swift; sourceTree = "<group>"; };
+		3D5E72CB24977FD000FA0657 /* ArticleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItemCell.swift; sourceTree = "<group>"; };
 		3D607E62247A5F1D00FA19F9 /* ArticleListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListCoordinator.swift; sourceTree = "<group>"; };
 		3D607E6B247A685F00FA19F9 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		3D6C49262483746400EC5649 /* ArticleUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleUseCases.swift; sourceTree = "<group>"; };
@@ -164,6 +176,7 @@
 			children = (
 				3D20287D2483E1D300EED602 /* Headline */,
 				3DFF3B232467D85E0009D16B /* ArticleListViewController.swift */,
+				3D2ED8132496013B000294FA /* test.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +220,41 @@
 				3D4846AD248E206000EE5C7A /* HeadlineViewController.swift */,
 			);
 			path = Headline;
+			sourceTree = "<group>";
+		};
+		3D4846B5248E400400EE5C7A /* ArticleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3D4846B8248E402E00EE5C7A /* Coordinator */,
+				3D4846B7248E402A00EE5C7A /* ViewModel */,
+				3D4846B6248E402600EE5C7A /* View */,
+			);
+			path = ArticleDetail;
+			sourceTree = "<group>";
+		};
+		3D4846B6248E402600EE5C7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D4846B9248E404B00EE5C7A /* ArticleDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D4846B7248E402A00EE5C7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D4846BD248E406A00EE5C7A /* ArticleDetailViewModelIO.swift */,
+				3D4846BF248E40C400EE5C7A /* ArticleDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D4846B8248E402E00EE5C7A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3D4846C1248E410100EE5C7A /* ArticleDetailCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		3D4FB7A5247FED1E00F6A3F8 /* Infrastructure */ = {
@@ -418,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				3DE51F60247BB9CE0031E95D /* HeadlineCell.swift */,
+				3D5E72CB24977FD000FA0657 /* ArticleItemCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -487,6 +536,7 @@
 				3D2028782483B40E00EED602 /* Observable */,
 				3DE51F52247BAD770031E95D /* Components */,
 				3DFF3B222467D84B0009D16B /* ArticleList */,
+				3D4846B5248E400400EE5C7A /* ArticleDetail */,
 				3DE51F5B247BB0270031E95D /* Extensions */,
 			);
 			path = Presentation;
@@ -642,6 +692,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2ED8142496013B000294FA /* test.xib in Resources */,
 				3D8D4053246432DD0018F693 /* LaunchScreen.storyboard in Resources */,
 				3D8D4050246432DD0018F693 /* Assets.xcassets in Resources */,
 			);
@@ -767,6 +818,7 @@
 				3DE51F73247BDDC50031E95D /* ServiceResponse.swift in Sources */,
 				3DE51F77247BFD690031E95D /* ApiEndpoint.swift in Sources */,
 				3DE51F71247BD9870031E95D /* DictionaryExtension.swift in Sources */,
+				3D5E72CC24977FD100FA0657 /* ArticleItemCell.swift in Sources */,
 				3DFEC6B72484E9230069B468 /* ImageViewExtension.swift in Sources */,
 				3D4846AF248E206000EE5C7A /* HeadlineViewController.swift in Sources */,
 				3DCEFAD724837B4300D0A536 /* RepositoryTask.swift in Sources */,
@@ -774,8 +826,12 @@
 				3DFF3B242467D85E0009D16B /* ArticleListViewController.swift in Sources */,
 				3D20287A2483B41E00EED602 /* Observable.swift in Sources */,
 				3D8D407A246435850018F693 /* ServiceManager.swift in Sources */,
+				3D4846BE248E406A00EE5C7A /* ArticleDetailViewModelIO.swift in Sources */,
 				3D6C49302483763C00EC5649 /* ArticleRepositoryInterface.swift in Sources */,
+				3D4846C2248E410100EE5C7A /* ArticleDetailCoordinator.swift in Sources */,
 				3DE51F66247BCD900031E95D /* ServiceConfig.swift in Sources */,
+				3D4846C0248E40C400EE5C7A /* ArticleDetailViewModel.swift in Sources */,
+				3D4846BB248E404B00EE5C7A /* ArticleDetailViewController.swift in Sources */,
 				3DE51F61247BB9CE0031E95D /* HeadlineCell.swift in Sources */,
 				3DFF3B3A246834BC0009D16B /* ArticleDIContainer.swift in Sources */,
 				3D1634FC247AAA3400FE09BD /* ArticleListViewModelIO.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeadlineCell: UICollectionViewCell {
+class HeadlineCell: UITableViewCell {
   var item: Article? {
     didSet {
       didSetHeadlineItem()
@@ -51,8 +51,8 @@ class HeadlineCell: UICollectionViewCell {
     return String(describing: self)
   }
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
 
     configureHeadlineImage()
     configureLabelContainer()

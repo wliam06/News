@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = navigationController
     coordinator = AppFlowCoordinator(navigationController: navigationController, appDIContainer: container)
     coordinator?.start()
+    window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
     return true
   }
